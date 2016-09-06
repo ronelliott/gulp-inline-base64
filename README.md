@@ -9,7 +9,7 @@ Install it
 ----------
 
 ```
-npm install --save-dev gulp-inline-base64
+npm install --save-dev gulp-inlinebase64
 ```
 
 Use it
@@ -19,7 +19,7 @@ Here is my sass config. As you can see, I use the 'maxSize' option to specitfy t
 
 ```
 var sass = require('gulp-sass'),
-	inline_base64 = require('gulp-inline-base64'),
+	inlinebase64 = require('gulp-inlinebase64'),
 	autoprefixer = require('gulp-autoprefixer');
 ...
 
@@ -36,10 +36,10 @@ gulp.task('sass', function() {
         ],
         imagePath: path_src
     }))
-    .pipe(inline_base64({
-        baseDir: path_src,
-        maxSize: 14 * 1024,
-        debug: true
+    .pipe(inlinebase64({
+        includes: [
+            path_src,
+        ],
     }))
     .pipe(autoprefixer("last 2 version", "> 1%", {
         cascade: true
